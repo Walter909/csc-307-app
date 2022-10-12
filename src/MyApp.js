@@ -10,7 +10,7 @@ function MyApp() {
   async function makeDeleteCall(index) {
     try {
       const response = await axios.delete(
-        "http://localhost:4000/users/" + characters[index].id
+        "http://localhost:4000/users/" + characters[index]._id
       );
       return response;
     } catch (error) {
@@ -23,7 +23,7 @@ function MyApp() {
     makeDeleteCall(index);
 
     const updated = characters.filter((character, i) => {
-      return i != index;
+      return i !== index;
     });
 
     setCharacters(updated);
